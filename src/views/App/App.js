@@ -5,7 +5,7 @@ import { Layout, Space } from 'antd';
 import logoSvg from 'images/forget-me-not.svg';
 import 'antd/dist/antd.css';
 
-const { Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 const HEADER_HEIGHT = '64px';
 
@@ -27,7 +27,7 @@ const Logo = styled.div`
     background-image: url(${logoSvg});
     background-repeat: no-repeat;
     background-position: center 45%;
-    background-size: 42px 42px;
+    background-size: 68%;
 `;
 
 const LogoLabel = styled.span`
@@ -39,6 +39,10 @@ const Header = styled(Layout.Header)`
     display: flex;
     align-items: center;
     height: ${HEADER_HEIGHT};
+    background-color: white;
+`;
+
+const Footer = styled(Layout.Footer)`
     background-color: white;
 `;
 
