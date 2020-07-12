@@ -17,6 +17,8 @@ const FullHeightLayout = styled(Layout)`
 
 const LogoWrapper = styled(Link)`
     display: block;
+    height: ${HEADER_HEIGHT};
+    background-color: #011e3a;
 `;
 
 const Logo = styled.div`
@@ -24,15 +26,18 @@ const Logo = styled.div`
     height: ${HEADER_HEIGHT};
     background-image: url(${logoSvg});
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center 45%;
     background-size: 42px 42px;
 `;
 
 const LogoLabel = styled.span`
     font-size: 1.6rem;
+    line-height: 1.6rem;
 `;
 
 const Header = styled(Layout.Header)`
+    display: flex;
+    align-items: center;
     height: ${HEADER_HEIGHT};
     background-color: white;
 `;
@@ -51,7 +56,9 @@ export default () => (
                 </LogoWrapper>
             </Sider>
             <Layout>
-                <Header>Header</Header>
+                <Header>
+                    <span>Header</span>
+                </Header>
                 <Content>
                     
                 </Content>
