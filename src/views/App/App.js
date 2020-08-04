@@ -6,6 +6,13 @@ import { Layout, Menu, Space, Divider } from 'antd';
 import logoSvg from 'images/forget-me-not.svg';
 import 'antd/dist/antd.css';
 
+import {
+    CalendarOutlined,
+    ClockCircleOutlined,
+    ExclamationCircleOutlined,
+    InboxOutlined,
+  } from '@ant-design/icons';
+
 const { Sider, Content } = Layout;
 
 const HEADER_HEIGHT = '64px';
@@ -86,16 +93,16 @@ export default () => (
                         theme="dark" 
                         selectedKeys={['today']}
                     >
-                        <Menu.Item key="today">
+                        <Menu.Item key="today" icon={<CalendarOutlined />}>
                             Сегодня
                         </Menu.Item>
-                        <Menu.Item key="planned">
+                        <Menu.Item key="planned" icon={<ClockCircleOutlined />}>
                             Запланировано
                         </Menu.Item>
-                        <Menu.Item key="expired">
+                        <Menu.Item key="expired" icon={<ExclamationCircleOutlined />}>
                             Просрочено
                         </Menu.Item>
-                        <Menu.Item key="all">
+                        <Menu.Item key="all" icon={<InboxOutlined />}>
                             Все
                         </Menu.Item>
                     </Menu>
