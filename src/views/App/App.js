@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { oneLine } from 'common-tags';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { Layout, Menu, Space, Divider } from 'antd';
-import logoSvg from 'images/forget-me-not.svg';
+import { Layout, Menu, Space } from 'antd';
+import { CarryOutOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 import {
@@ -16,9 +15,6 @@ import {
 const { Sider, Content } = Layout;
 
 const HEADER_HEIGHT = '64px';
-const LOGO_SIZE = oneLine`
-    calc(${HEADER_HEIGHT} * 0.68)
-`;
 
 const FullHeightLayout = styled(Layout)`
     & {
@@ -31,21 +27,11 @@ const LogoWrapper = styled(Link)`
     align-items: center;
     height: ${HEADER_HEIGHT};
     padding: 0 16px;
-    background-color: #011e3a;
-`;
-
-const Logo = styled.div`
-    width: ${LOGO_SIZE};
-    height: ${LOGO_SIZE};
-    background-image: url(${logoSvg});
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin-right: 0.5rem;
+    background-color: #001e38;
 `;
 
 const LogoLabel = styled.span`
     font-size: 1.6rem;
-    line-height: 1.6rem;
 `;
 
 const Header = styled(Layout.Header)`
@@ -63,24 +49,26 @@ const NavWrapper = styled(Space)`
     width: 100%;
 `;
 
-const NavDivider = styled(Divider)`
-    &&& {
-        &:before, 
-        &:after {
-            border-top: 1px solid #676767;
-        }
-    }
-    .ant-divider-inner-text {
-        color: #676767;
-    }
+const NavDivider = styled.div`
+    color: rgba(255, 255, 255, 0.35);
+    padding: 0 16px;
+    margin: 1rem 0;
 `;
 
 export default () => (
     <Router>
         <FullHeightLayout>
-            <Sider width="320">
+            <Sider 
+                width="320" 
+                theme="dark"
+            >
                 <LogoWrapper to="/">
-                    <Logo />
+                    <CarryOutOutlined 
+                        style={{
+                            fontSize: '2.3rem',
+                            marginRight: '1rem',
+                        }}
+                    />
                     <LogoLabel>
                         Незабудка
                     </LogoLabel>
