@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { Layout, Menu, Space } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
+import Todo from 'views/Todo';
 
 import {
     CalendarOutlined,
@@ -121,7 +122,7 @@ export default () => (
                     <span>Header</span>
                 </Header>
                 <Content>
-                    
+                    <Todo />
                 </Content>
                 <Footer>Footer</Footer>
             </Layout>
