@@ -29,6 +29,7 @@ const LogoWrapper = styled(Link)`
     height: ${HEADER_HEIGHT};
     padding: 0 16px;
     background-color: #001e38;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.05);
 `;
 
 const LogoLabel = styled.span`
@@ -54,6 +55,21 @@ const NavDivider = styled.div`
     color: rgba(255, 255, 255, 0.35);
     padding: 0 16px;
     margin: 1rem 0;
+`;
+
+const StyledHeader = styled(Header)`
+    background-color: rgba(255,255,255,0.97);
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.05);
+    position: fixed;
+    backface-visibility: hidden;
+    z-index: 1000;
+    width: 100%;
+`;
+
+const StyledContent = styled(Content)`
+    padding: 22px 50px;
+    background-color: white;
+    margin-top: ${HEADER_HEIGHT};
 `;
 
 export default () => (
@@ -118,13 +134,15 @@ export default () => (
                 </NavWrapper>
             </Sider>
             <Layout>
-                <Header>
-                    <span>Header</span>
-                </Header>
-                <Content>
+                <StyledHeader>
+                    
+                </StyledHeader>
+                <StyledContent>
                     <Todo />
-                </Content>
-                <Footer>Footer</Footer>
+                </StyledContent>
+                <Footer>
+
+                </Footer>
             </Layout>
         </FullHeightLayout>
     </Router>

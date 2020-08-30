@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.4.2",
     "common-tags": "^1.8.0",
+    "final-form": "^4.20.1",
     "react": "^16.13.1",
     "react-contenteditable": "^3.3.5",
     "react-dom": "^16.13.1",
+    "react-final-form": "^6.5.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "styled-components": "^5.1.1"

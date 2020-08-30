@@ -1,35 +1,25 @@
-import React, { useState, useRef } from 'react';
-import { PageHeader } from 'antd';
-import { ContentEditable } from 'components';
+import React from 'react';
+import { Form, Field } from 'react-final-form';
+import { adaptor } from 'components/form/utils';
+import Title from './Title';
 
 const Todo = () => {
-    const [title, setTitle] = useState('Туду лист');
-    const contentEditableRef = useRef();
-
-    const handleChangeTitle = event => {
-        const { value } = event.target;
-        setTitle(value);
-    };
-
-    const handleBlurTitle = event => {
-        const value = contentEditableRef.current.innerHTML;
-        if (value === '') {
-            setTitle('Туду лист');
-        }
-    };
-
     return (
-        <PageHeader 
-            title={
-                <ContentEditable 
-                    innerRef={contentEditableRef}
-                    tagName="h2"
-                    html={title}
-                    onChange={handleChangeTitle}
-                    onBlur={handleBlurTitle}
-                />
-            } 
-        />
+        <Form
+            initialValues={{
+                title: 'Туду лист',
+            }}
+            onSubmit={() => {}}
+        >
+            {({ handleSubmit }) => (
+                <form onSubmit={handleSubmit}>
+                    <Field
+                        name="title"
+                        render={adaptor(Title)}
+                    />
+                </form>
+            )}
+        </Form>
     );
 };
 
