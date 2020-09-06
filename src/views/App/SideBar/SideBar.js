@@ -1,8 +1,13 @@
 import React from 'react';
+import Period from './Period';
+import Categories from './Categories';
 
 const SideBar = () => {
     return (
-        <div>SideBar</div>
+        <div>
+            <Period />
+            <Categories defaultValue={0} />
+        </div>
     );
 };
 
