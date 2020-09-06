@@ -9,34 +9,40 @@ import Item from './Item';
 
 const Period = () => {
     return (
-        <Grid container spacing={3}>
-            <Grid item container xs={12}>
-                <Grid item xs={6}>
-                    <Item 
-                        label="Сегодня"
-                        icon={<TodayOutlinedIcon />}
-                    />
-                </Grid>
-                <Grid item xs={6}>
-                    <Item 
-                        label="Запланировано"
-                        icon={<EventOutlinedIcon />}
-                    />
-                </Grid>
+        <Grid 
+            container 
+            spacing={1}
+            style={{
+                padding: '16px',
+            }}
+        >
+            <Grid item xs={6}>
+                <Item 
+                    label="Сегодня"
+                    count={2}
+                    icon={<TodayOutlinedIcon />}
+                />
             </Grid>
-            <Grid item container xs={12}>
-                <Grid item xs={6}>
-                    <Item 
-                        label="Просрочено"
-                        icon={<EventBusyOutlinedIcon />}
-                    />
-                </Grid>
-                <Grid item xs={6}>
-                    <Item 
-                        label="Все"
-                        icon={<DateRangeOutlinedIcon />}
-                    />
-                </Grid>
+            <Grid item xs={6}>
+                <Item 
+                    label="Запланировано"
+                    count={7}
+                    icon={<EventOutlinedIcon />}
+                />
+            </Grid>
+            <Grid item xs={6}>
+                <Item 
+                    label="Просрочено"
+                    count={0}
+                    icon={<EventBusyOutlinedIcon />}
+                />
+            </Grid>
+            <Grid item xs={6}>
+                <Item 
+                    label="Все"
+                    count={9}
+                    icon={<DateRangeOutlinedIcon />}
+                />
             </Grid>
         </Grid>
     );
