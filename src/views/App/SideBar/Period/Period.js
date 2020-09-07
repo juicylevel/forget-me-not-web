@@ -21,6 +21,7 @@ const Period = () => {
                     label="Сегодня"
                     count={2}
                     icon={<TodayOutlinedIcon />}
+                    color="#037AFE"
                 />
             </Grid>
             <Grid item xs={6}>
@@ -28,6 +29,7 @@ const Period = () => {
                     label="Запланировано"
                     count={7}
                     icon={<EventOutlinedIcon />}
+                    color="#FE9402"
                 />
             </Grid>
             <Grid item xs={6}>
@@ -35,6 +37,7 @@ const Period = () => {
                     label="Просрочено"
                     count={0}
                     icon={<EventBusyOutlinedIcon />}
+                    color="#5A626A"
                 />
             </Grid>
             <Grid item xs={6}>
@@ -42,6 +45,7 @@ const Period = () => {
                     label="Все"
                     count={9}
                     icon={<DateRangeOutlinedIcon />}
+                    color="#FF3A2F"
                 />
             </Grid>
         </Grid>

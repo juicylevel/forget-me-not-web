@@ -4,7 +4,7 @@ import Period from './Period';
 import Categories from './Categories';
 
 const Wrapper = styled.div`
-    max-width: 300px;
+    max-width: 330px;
     padding-top: 9px;
     background-color: #E2E5E6;
 `;
