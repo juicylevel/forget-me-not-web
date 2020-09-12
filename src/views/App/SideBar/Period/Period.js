@@ -1,13 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { keyBy } from 'lodash';
+import { useControlled } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import TodayOutlinedIcon from '@material-ui/icons/TodayOutlined';
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 import EventBusyOutlinedIcon from '@material-ui/icons/EventBusyOutlined';
+import { TODAY, PLANNED, EXPIRED, ALL } from 'constants/period';
+import { customListHandler } from 'components/form/utils';
 import Item from './Item';
 
-const Period = () => {
+const data = [
+    {
+        id: TODAY,
+        count: 2,
+    },
+    {
+        id: PLANNED,
+        count: 7,
+    },
+    {
+        id: EXPIRED,
+        count: 0,
+    },
+    {
+        id: ALL,
+        count: 9,
+    },
+];
+
+const Period = ({
+    value: valueProp,
+    defaultValue,
+    children,
+    onFocus,
+    onChange,
+    onBlur,
+    ...rest
+}) => {
+    const [value, setValue] = useControlled({
+        controlled: valueProp,
+        default: defaultValue,
+        name: 'Period',
+    });
+
+    const handleSelect = id => {
+        setValue(id);
+
+        customListHandler({
+            value: id,
+            onFocus,
+            onChange,
+            onBlur,
+        });
+    };
+
+    const itemsData = keyBy(data, item => item.id);
+
     return (
         <Grid 
             container 
@@ -19,33 +69,41 @@ const Period = () => {
             <Grid item xs={6}>
                 <Item 
                     label="Сегодня"
-                    count={2}
                     icon={<TodayOutlinedIcon />}
                     color="#037AFE"
+                    selected={value === TODAY}
+                    data={itemsData[TODAY]}
+                    onSelect={handleSelect}
                 />
             </Grid>
             <Grid item xs={6}>
                 <Item 
                     label="Запланировано"
-                    count={7}
                     icon={<EventOutlinedIcon />}
                     color="#FE9402"
+                    selected={value === PLANNED}
+                    data={itemsData[PLANNED]}
+                    onSelect={handleSelect}
                 />
             </Grid>
             <Grid item xs={6}>
                 <Item 
                     label="Просрочено"
-                    count={0}
                     icon={<EventBusyOutlinedIcon />}
                     color="#5A626A"
+                    selected={value === EXPIRED}
+                    data={itemsData[EXPIRED]}
+                    onSelect={handleSelect}
                 />
             </Grid>
             <Grid item xs={6}>
                 <Item 
                     label="Все"
-                    count={9}
                     icon={<DateRangeOutlinedIcon />}
                     color="#FF3A2F"
+                    selected={value === ALL}
+                    data={itemsData[ALL]}
+                    onSelect={handleSelect}
                 />
             </Grid>
         </Grid>
@@ -53,7 +111,7 @@ const Period = () => {
 };
 
 Period.propTypes = {
-
+    data: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Period;

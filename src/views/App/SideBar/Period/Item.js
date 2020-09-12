@@ -1,19 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { get } from 'lodash';
 import styled from 'styled-components';
 import { Box } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
-const Wrapper = styled(Box)`
-    padding: 10px;
-    background-color: #CCCED0;
-    border-radius: 8px;
-    cursor: pointer;
-`;
+const IconShape = styled(Avatar)``;
 
-const IconShape = styled(Avatar)`
-    background-color: ${props => props.color};
+const Wrapper = styled(Box)`
+    ${({ color, selected, theme }) => `
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 200ms;
+        background-color: ${selected ? color : '#CCCED0'};
+        color: ${selected ? 'white' : theme.palette.text.secondary};
+        &:hover {
+            background-color: ${!selected && '#00000024'};
+        }
+        ${IconShape} {
+            background-color: ${selected ? 'white' : color};
+            color: ${selected ? color : 'white'};
+        }
+    `}
 `;
 
 const Count = styled(Typography)`
@@ -26,29 +36,40 @@ const Label = styled(Typography)`
 `;
 
 const Item = ({
+    data,
     label,
     icon,
     color,
-    count,
+    selected,
+    onSelect,
 }) => {
+    const count = get(data, 'count');
+
+    const handleClick = () => {
+        onSelect(data.id);
+    };
+    
     return (
         <Wrapper 
             display="flex"
             flexDirection="column"
+            selected={selected}
+            color={color}
+            onClick={handleClick}
         >
             <Box 
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
             >
-                <IconShape color={color}>
+                <IconShape>
                     {icon}
                 </IconShape>
-                <Count color="textSecondary">
+                <Count>
                     {count}
                 </Count>
             </Box>
-            <Label color="textSecondary">
+            <Label>
                 {label}
             </Label>
         </Wrapper>
@@ -56,10 +77,16 @@ const Item = ({
 };
 
 Item.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.any,
+        count: PropTypes.number,
+    }),
     label: PropTypes.string,
     icon: PropTypes.element,
     color: PropTypes.string,
     count: PropTypes.number,
+    selected: PropTypes.bool,
+    onSelect: PropTypes.func,
 };
 
 export default Item;

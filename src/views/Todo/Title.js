@@ -10,8 +10,6 @@ const Title = ({
 }) => {
     const inputRef = useRef();
 
-    console.log(value)
-
     const handleChange = event => {
         const { value } = event.target;
         onChange(value);

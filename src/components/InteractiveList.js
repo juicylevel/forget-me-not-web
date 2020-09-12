@@ -16,7 +16,7 @@ const InteractiveList = ({
     const [value, setValue] = useControlled({
         controlled: valueProp,
         default: defaultValue,
-        name: 'Select',
+        name: 'InteractiveList',
     });
 
     const handleSelect = index => {
