@@ -6,7 +6,7 @@ import { FieldAdaptor } from 'components/form';
 import Period from './Period';
 import Categories from './Categories';
 
-const Wrapper = styled(Box)`
+const Form = styled(Box)`
     max-width: 330px;
     padding-top: 9px;
     background-color: #E2E5E6;
@@ -25,22 +25,21 @@ const SideBar = () => {
     const categoryFieldProps = useField('category', form);
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Wrapper
-                display="flex"
-                flexDirection="column"
-                component="aside"
-            >
-                <FieldAdaptor
-                    {...periodFieldProps}
-                    Component={Period}
-                />
-                <FieldAdaptor
-                    {...categoryFieldProps}
-                    Component={Categories}
-                />
-            </Wrapper>
-        </form>
+        <Form
+            display="flex"
+            flexDirection="column"
+            component="form"
+            onSubmit={handleSubmit}
+        >
+            <FieldAdaptor
+                {...periodFieldProps}
+                Component={Period}
+            />
+            <FieldAdaptor
+                {...categoryFieldProps}
+                Component={Categories}
+            />
+        </Form>
     );
 };
 
