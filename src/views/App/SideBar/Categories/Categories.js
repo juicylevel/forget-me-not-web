@@ -1,32 +1,66 @@
 import React from 'react';
-import FormatListBulletedOutlinedIcon from '@material-ui/icons/FormatListBulletedOutlined';
-import WorkOutlineOutlinedIcon from '@material-ui/icons/WorkOutlineOutlined';
-import MotorcycleOutlinedIcon from '@material-ui/icons/MotorcycleOutlined';
-import LocalFloristOutlinedIcon from '@material-ui/icons/LocalFloristOutlined';
+import PropTypes from 'prop-types';
+import { map, reduce } from 'lodash';
 import { InteractiveList } from 'components';
 import Item from './Item';
+import { isEmpty } from 'utils';
+
+const data = [
+    {
+        id: 1,
+        count: 3,
+        label: 'Работа',
+        icon: 'code',
+        color: 'blue',
+    },
+    {
+        id: 4,
+        count: 2,
+        label: 'По дому',
+        icon: 'home',
+        color: 'blue',
+    },
+    {
+        id: 2,
+        count: 8,
+        label: 'Байк',
+        icon: 'bike',
+        color: 'red',
+    },
+    {
+        id: 3,
+        count: 1,
+        label: 'Лес',
+        icon: 'forest',
+        color: 'green',
+    },
+];
 
 const Categories = props => {
+    const items = map(data, item => (
+        <Item key={item.id} {...item} />
+    ));
+
+    const total = reduce(data, (sum, item) => (
+        sum + item.count
+    ), 0);
+
     return (
         <InteractiveList {...props}>
-            <Item 
-                icon={<FormatListBulletedOutlinedIcon />}
-                label="Все"
-            />
-            <Item 
-                icon={<WorkOutlineOutlinedIcon />}
-                label="Работа"
-            />
-            <Item 
-                icon={<MotorcycleOutlinedIcon />}
-                label="Байк"
-            />
-            <Item 
-                icon={<LocalFloristOutlinedIcon />}
-                label="Лес"
-            />
+            {!isEmpty(items) && (
+                <Item 
+                    icon="all"
+                    label="Все"
+                    count={total}
+                />
+            )}
+            {items}
         </InteractiveList>
     );
+};
+
+Categories.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Categories;

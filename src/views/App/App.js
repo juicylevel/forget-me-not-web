@@ -11,35 +11,29 @@ import Content from './Content';
 import Todo from 'views/Todo';
 import 'fontsource-roboto';
 
-const customTheme = createMuiTheme({
-    palette: {
-        primary: {
-          main: '#6772e5',
-        },
-      },
-});
+const customTheme = createMuiTheme();
 
 export default () => (
     <NoSsr>
-    <MuiThemeProvider theme={customTheme}>
-        <ThemeProvider theme={customTheme}>
-            <Router>
-                <CssBaseline />
-                <Layout 
-                    sideBar={
-                        <SideBar />
-                    }
-                    header={
-                        <Header />
-                    }
-                    content={
-                        <Content>
-                            <Todo />
-                        </Content>
-                    }
-                />
-            </Router>
-        </ThemeProvider>
-    </MuiThemeProvider>
+        <MuiThemeProvider theme={customTheme}>
+            <ThemeProvider theme={customTheme}>
+                <Router>
+                    <CssBaseline />
+                    <Layout 
+                        sideBar={
+                            <SideBar />
+                        }
+                        header={
+                            <Header />
+                        }
+                        content={
+                            <Content>
+                                <Todo />
+                            </Content>
+                        }
+                    />
+                </Router>
+            </ThemeProvider>
+        </MuiThemeProvider>
     </NoSsr>
 );

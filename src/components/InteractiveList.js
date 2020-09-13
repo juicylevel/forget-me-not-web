@@ -47,7 +47,7 @@ const InteractiveList = ({
 InteractiveList.propTypes = {
     value: PropTypes.any,
     defaultValue: PropTypes.any,
-    children: PropTypes.arrayOf(PropTypes.element),
+    children: PropTypes.any,
     onFocus: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,

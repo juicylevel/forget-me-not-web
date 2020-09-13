@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Avatar from '@material-ui/core/Avatar';
+import Icon from './Icon';
 
 const Item = ({
     label,
@@ -21,7 +22,7 @@ const Item = ({
         >
             <ListItemAvatar>
                 <Avatar>
-                    {icon}
+                    <Icon type={icon} />
                 </Avatar>
             </ListItemAvatar>
             <ListItemText primary={label} />
@@ -34,7 +35,7 @@ const Item = ({
 
 Item.propTypes = {
     label: PropTypes.string,
-    icon: PropTypes.element,
+    icon: PropTypes.string,
     count: PropTypes.number,
     selected: PropTypes.bool,
     onClick: PropTypes.func,
