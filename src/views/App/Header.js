@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 const Header = () => {
     const classes = useStyles();
     return (
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Toolbar>
                 <IconButton 
                     edge="start" 

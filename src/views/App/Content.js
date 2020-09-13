@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Wrapper = styled.main`
+    flex: 1;
+`;
 
 const Content = ({
     children,
 }) => {
     return (
-        <div>{children}</div>
+        <Wrapper>{children}</Wrapper>
     );
 };
 

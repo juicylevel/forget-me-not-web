@@ -11,9 +11,11 @@ const Layout = ({
         <Box 
             display="flex"
             flexDirection="column"
+            height="100%"
+            component="main"
         >
             {header}
-            <Box display="flex">
+            <Box display="flex" flex="1" paddingTop="64px">
                 {sideBar}
                 {content}
             </Box>
