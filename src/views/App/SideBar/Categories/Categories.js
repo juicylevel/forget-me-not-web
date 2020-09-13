@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { map, reduce } from 'lodash';
 import { InteractiveList } from 'components';
 import Item from './Item';
+import AddButton from './AddButton';
 import { isEmpty } from 'utils';
+import { Box } from '@material-ui/core';
 
 const data = [
     {
@@ -46,16 +48,26 @@ const Categories = props => {
     ), 0);
 
     return (
-        <InteractiveList {...props}>
-            {!isEmpty(items) && (
-                <Item 
-                    icon="all"
-                    label="Все"
-                    count={total}
-                />
-            )}
-            {items}
-        </InteractiveList>
+        <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            flex="1"
+        >
+            <InteractiveList {...props}>
+                {!isEmpty(items) && (
+                    <Item 
+                        icon="all"
+                        label="Все"
+                        count={total}
+                    />
+                )}
+                {items}
+            </InteractiveList>
+            <AddButton>
+                Добавить список
+            </AddButton>
+        </Box>
     );
 };
 

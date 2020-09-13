@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyBy } from 'lodash';
 import { useControlled } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TodayOutlinedIcon from '@material-ui/icons/TodayOutlined';
 import EventOutlinedIcon from '@material-ui/icons/EventOutlined';
@@ -39,6 +40,8 @@ const Period = ({
     onBlur,
     ...rest
 }) => {
+    const theme = useTheme();
+
     const [value, setValue] = useControlled({
         controlled: valueProp,
         default: defaultValue,
@@ -63,7 +66,7 @@ const Period = ({
             container 
             spacing={1}
             style={{
-                padding: '16px',
+                padding: theme.spacing(2),
             }}
         >
             <Grid item xs={6}>

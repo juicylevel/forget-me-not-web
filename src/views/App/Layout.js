@@ -6,22 +6,23 @@ const Layout = ({
     sideBar,
     header,
     content,
-}) => {
-    return (
+}) => (
+    <Box 
+        display="flex"
+        flexDirection="column"
+        height="100%"
+    >
+        {header}
         <Box 
-            display="flex"
-            flexDirection="column"
-            height="100%"
-            component="main"
+            display="flex" 
+            flex="1" 
+            paddingTop="64px"    
         >
-            {header}
-            <Box display="flex" flex="1" paddingTop="64px">
-                {sideBar}
-                {content}
-            </Box>
+            {sideBar}
+            {content}
         </Box>
-    );
-};
+    </Box>
+);
 
 Layout.propTypes = {
     sideBar: PropTypes.element,
