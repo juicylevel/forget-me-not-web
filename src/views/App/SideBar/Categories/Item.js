@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -7,9 +8,17 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Avatar from '@material-ui/core/Avatar';
 import Icon from './Icon';
 
+const IconShape = styled(Avatar)`
+    ${({ color }) => `
+        background-color: ${color};
+        color: white;
+    `}
+`;
+
 const Item = ({
     label,
     icon,
+    color,
     count,
     selected,
     onClick,
@@ -21,9 +30,9 @@ const Item = ({
             onClick={onClick}
         >
             <ListItemAvatar>
-                <Avatar>
+                <IconShape color={color}>
                     <Icon type={icon} />
-                </Avatar>
+                </IconShape>
             </ListItemAvatar>
             <ListItemText primary={label} />
             <ListItemSecondaryAction>
@@ -36,6 +45,7 @@ const Item = ({
 Item.propTypes = {
     label: PropTypes.string,
     icon: PropTypes.string,
+    color: PropTypes.string,
     count: PropTypes.number,
     selected: PropTypes.bool,
     onClick: PropTypes.func,

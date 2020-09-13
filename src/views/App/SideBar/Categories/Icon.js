@@ -1,23 +1,20 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { getComponentName } from 'utils';
 
 const Icon = ({ type }) => {
     const iconName = getComponentName(type);
         
-    const LazyComponent = lazy(() => (
-        import(`components/icons/${iconName}`).catch(() => (
-            import('@material-ui/icons/FormatListBulleted')
+    const LazyComponent = useMemo(() => (
+        lazy(() => (
+            import(`components/icons/${iconName}`).catch(() => (
+                import('@material-ui/icons/FormatListBulleted')
+            ))
         ))
-    ));
+    ), [iconName]);
 
     return (
-        <Suspense 
-            fallback={
-                <CircularProgress style={{ color: '#00000030' }} />
-            }
-        >
+        <Suspense fallback={null}>
             <LazyComponent />
         </Suspense>
     );

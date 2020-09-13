@@ -11,28 +11,28 @@ const data = [
         count: 3,
         label: 'Работа',
         icon: 'code',
-        color: 'blue',
+        color: '#FF9501',
     },
     {
         id: 4,
         count: 2,
         label: 'По дому',
         icon: 'home',
-        color: 'blue',
+        color: '#53AAF2',
     },
     {
         id: 2,
         count: 8,
         label: 'Байк',
         icon: 'bike',
-        color: 'red',
+        color: '#5C6770',
     },
     {
         id: 3,
         count: 1,
         label: 'Лес',
         icon: 'forest',
-        color: 'green',
+        color: '#19C65A',
     },
 ];
 

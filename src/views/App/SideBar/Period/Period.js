@@ -88,21 +88,21 @@ const Period = ({
             </Grid>
             <Grid item xs={6}>
                 <Item 
-                    label="Просрочено"
-                    icon={<EventBusyOutlinedIcon />}
+                    label="Все"
+                    icon={<DateRangeOutlinedIcon />}
                     color="#5A626A"
-                    selected={value === EXPIRED}
-                    data={itemsData[EXPIRED]}
+                    selected={value === ALL}
+                    data={itemsData[ALL]}
                     onSelect={handleSelect}
                 />
             </Grid>
             <Grid item xs={6}>
                 <Item 
-                    label="Все"
-                    icon={<DateRangeOutlinedIcon />}
+                    label="Просрочено"
+                    icon={<EventBusyOutlinedIcon />}
                     color="#FF3A2F"
-                    selected={value === ALL}
-                    data={itemsData[ALL]}
+                    selected={value === EXPIRED}
+                    data={itemsData[EXPIRED]}
                     onSelect={handleSelect}
                 />
             </Grid>
