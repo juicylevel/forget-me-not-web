@@ -11,7 +11,15 @@ import Header from './Header';
 import Content from './Content';
 import 'fontsource-roboto';
 
-const customTheme = createMuiTheme();
+const customTheme = createMuiTheme({
+    overrides: {
+        MuiListItemIcon: {
+            root: {
+                minWidth: '30px',
+            }
+        }
+    }
+});
 
 export default () => (
     <NoSsr>
