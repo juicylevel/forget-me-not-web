@@ -54,6 +54,18 @@ const Item = ({
         setAnchorEl(null);
     };
 
+    const handleEdit = () => {
+        handleCloseMenu();
+
+        // TODO
+    };
+
+    const handleDelete = () => {
+        handleCloseMenu();
+
+        // TODO
+    };
+
     return (
         <ListItem 
             button 
@@ -93,13 +105,13 @@ const Item = ({
                         vertical: 'top',
                     }}
                 >
-                    <MenuItem>
+                    <MenuItem onClick={handleEdit}>
                         <ListItemIcon>
                             <EditIcon fontSize="small" />
                         </ListItemIcon>
                         <ListItemText primary="Редактировать" />
                     </MenuItem>
-                    <MenuItem>
+                    <MenuItem onClick={handleDelete}>
                         <ListItemIcon>
                             <DeleteOutlineIcon fontSize="small" />
                         </ListItemIcon>
