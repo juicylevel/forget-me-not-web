@@ -16,6 +16,8 @@
     "react-dom": "^16.13.1",
     "react-final-form": "^6.5.1",
     "react-final-form-hooks": "^2.0.2",
+    "react-hooks-compose": "^2.0.8",
+    "react-query": "^2.23.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "styled-components": "^5.1.1"

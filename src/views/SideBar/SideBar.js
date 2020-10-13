@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { useForm, useField } from 'react-final-form-hooks';
 import { Box } from '@material-ui/core';
 import { FieldAdaptor } from 'components/form';
-import Period from './Period';
-import Categories from './Categories';
+import Period from 'views/Period';
+import Categories from 'views/Categories';
 
 const Form = styled(Box)`
     max-width: 330px;

@@ -20,6 +20,7 @@ const Wrapper = styled(Box)`
             background-color: ${!selected && '#00000024'};
         }
         ${IconShape} {
+            transition: background-color 200ms;
             background-color: ${selected ? 'white' : color};
             color: ${selected ? color : 'white'};
         }
