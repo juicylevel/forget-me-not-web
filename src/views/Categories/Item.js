@@ -11,17 +11,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
-import Avatar from '@material-ui/core/Avatar';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import Icon from './Icon';
-
-const IconShape = styled(Avatar)`
-    ${({ color }) => `
-        background-color: ${color};
-        color: white;
-    `}
-`;
+import { IconShape, LazyIcon } from 'components';
 
 const ListItemContainer = styled.li`
     .edit-button {
@@ -75,7 +67,7 @@ const Item = ({
         >
             <ListItemAvatar>
                 <IconShape color={color}>
-                    <Icon type={icon} />
+                    <LazyIcon type={icon} />
                 </IconShape>
             </ListItemAvatar>
             <ListItemText primary={label} />
