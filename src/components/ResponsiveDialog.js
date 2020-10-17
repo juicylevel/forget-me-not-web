@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 const ResponsiveDialog = props => {
     const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
     return createElement(Dialog, {
         fullScreen,

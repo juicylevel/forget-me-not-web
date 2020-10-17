@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import { FlexBox, IconShape, LazyIcon, ResponsiveDialog } from 'components';
+import { DialogTitle } from '@material-ui/core';
 
 const Category = ({
     show,
@@ -20,25 +21,42 @@ const Category = ({
             anchor="left"
             onClose={onClose}
         >
+            <DialogTitle>
+                Свойства списка "Походы"
+            </DialogTitle>
             <DialogContent>
                 <FlexBox
-                    flexDirection="column"
+                    flexDirection="row"
                     component="form"
+                    spacing={2}
                     onSubmit={onSave}
                 >
-                    <FlexBox justifyContent="flex-end">
-                        <IconButton >
-                            <DeleteOutlineIcon />
-                        </IconButton>
-                    </FlexBox>
-                    {/*<IconShape color={color}>
-                        <LazyIcon type={icon} />
-    </IconShape>*/}
-                    <TextField label="Наименование" />
+                    <IconShape 
+                        color={'#19C65A'}
+                        style={{
+                            width: '70px',
+                            height: '70px',
+                        }}
+                    >
+                        <LazyIcon 
+                            type={'forest'} 
+                            style={{
+                                fontSize: '40px'
+                            }}
+                        />
+                    </IconShape>
+                    <TextField 
+                        label="Наименование" 
+                        value="Походы"
+                        fullWidth
+                    />
                 </FlexBox>
             </DialogContent>
             <DialogActions>
                 <Button>
+                    Удалить
+                </Button>
+                <Button onClick={onClose}>
                     Закрыть
                 </Button>
                 <Button color="primary">

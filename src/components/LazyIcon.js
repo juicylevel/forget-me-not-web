@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { getComponentName } from 'utils';
 
-const Icon = ({ type }) => {
+const Icon = ({ type, ...rest }) => {
     const iconName = getComponentName(type);
         
     const LazyComponent = useMemo(() => (
@@ -15,7 +15,7 @@ const Icon = ({ type }) => {
 
     return (
         <Suspense fallback={null}>
-            <LazyComponent />
+            <LazyComponent {...rest} />
         </Suspense>
     );
 };
