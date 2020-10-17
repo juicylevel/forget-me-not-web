@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { map, reduce } from 'lodash';
 import { InteractiveList } from 'components';
@@ -6,6 +6,7 @@ import Item from './Item';
 import AddButton from './AddButton';
 import { isEmpty } from 'utils';
 import { Box } from '@material-ui/core';
+import Category from 'views/Category/Category';
 
 const data = [
     {
@@ -47,6 +48,10 @@ const Categories = props => {
         sum + item.count
     ), 0);
 
+    const [showCategory, setShowCategory] = useState(false);
+    const onShowCategory = () => setShowCategory(true);
+    const onCloseCategory = () => setShowCategory(false);
+
     return (
         <Box
             display="flex"
@@ -64,9 +69,13 @@ const Categories = props => {
                 )}
                 {items}
             </InteractiveList>
-            <AddButton>
+            <AddButton onClick={onShowCategory}>
                 Добавить список
             </AddButton>
+            <Category 
+                show={showCategory} 
+                onClose={onCloseCategory}
+            />
         </Box>
     );
 };

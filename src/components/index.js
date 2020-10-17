@@ -3,3 +3,4 @@ export { default as IconShape } from './IconShape';
 export { default as InteractiveList } from './InteractiveList';
 export { default as LazyIcon } from './LazyIcon';
 export { default as FlexBox } from './FlexBox';
+export { default as ResponsiveDialog } from './ResponsiveDialog';
